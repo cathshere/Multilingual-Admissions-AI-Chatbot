@@ -1,5 +1,8 @@
 # KEAM Admissions Desk
 
+🔗 **Live demo:** https://drive.google.com/file/d/1C0vIQThHTNBhxlHJREKXPLjdlEXobX8R/view?usp=sharing
+    deployed link: https://multilingual-admissions-ai-chatbot.onrender.com
+
 A multilingual admissions chatbot for KEAM, built from the original Colab notebook
 (LangGraph planner → FAISS/TF-IDF retriever → Groq LLM answerer), now split into:
 
@@ -56,6 +59,34 @@ loads by adding this above the `<script>` tag in `index.html`:
 ```html
 <script>window.KEAM_API_BASE = "https://your-backend-url";</script>
 ```
+## Supported languages
+
+The bot detects the language of each incoming question automatically and replies in that same language. Currently supported:
+
+| Code    | Language   |
+|---------|------------|
+| `en`    | English    |
+| `ml`    | Malayalam  |
+| `hi`    | Hindi      |
+| `ta`    | Tamil      |
+| `te`    | Telugu     |
+| `kn`    | Kannada    |
+| `fr`    | French     |
+| `de`    | German     |
+| `es`    | Spanish    |
+| `zh-cn` | Chinese    |
+| `ar`    | Arabic     |
+| `ja`    | Japanese   |
+
+No need to specify a language — just type your question naturally, and the response will match. If a query's language isn't in this list, `langdetect`'s best guess is still used and passed through to the LLM, so replies in other languages are often still possible, just not officially guaranteed.
+
+To add support for another language, add an entry to `LANGUAGE_NAMES` in `app.py`:
+```python
+LANGUAGE_NAMES = {
+    ...
+    "<iso-code>": "<Language Name>",
+}
+```
 
 ## 3. Using it
 
@@ -76,3 +107,6 @@ prospectus.
 - The `/api/chat` response includes the routing `action` (`retrieve` vs `answer_direct`)
   and the source pages used, which the frontend renders as a small provenance tag under
   each answer.
+
+
+  

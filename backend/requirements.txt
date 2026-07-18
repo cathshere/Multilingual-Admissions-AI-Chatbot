@@ -1,0 +1,10 @@
+flask>=3.0.3
+flask-cors>=4.0.1
+groq>=0.11.0
+faiss-cpu>=1.12.0
+pymupdf>=1.24.9
+langgraph>=0.2.34
+pydantic>=2.9.2
+scikit-learn>=1.5.2
+langdetect>=1.0.9
+numpy>=1.26.4

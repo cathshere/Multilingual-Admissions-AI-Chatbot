@@ -8,3 +8,4 @@ pydantic>=2.9.2
 scikit-learn>=1.5.2
 langdetect>=1.0.9
 numpy>=1.26.4
+gunicorn

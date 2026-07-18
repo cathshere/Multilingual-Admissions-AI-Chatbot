@@ -1,4 +1,4 @@
-# KEAM Admissions Desk
+# KEAM Admissions Desk AI Chatbot
 
 🔗 **Live demo:** https://drive.google.com/file/d/1C0vIQThHTNBhxlHJREKXPLjdlEXobX8R/view?usp=sharing
     deployed link: https://multilingual-admissions-ai-chatbot.onrender.com

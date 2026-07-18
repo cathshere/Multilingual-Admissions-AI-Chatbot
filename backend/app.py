@@ -44,7 +44,7 @@ CACHE_FILE = Path(os.environ.get("CACHE_FILE", BASE_DIR / "KEAM_faiss.pkl"))
 
 CHUNK_SIZE = int(os.environ.get("CHUNK_SIZE", 350))   # words per chunk
 CHUNK_STEP = int(os.environ.get("CHUNK_STEP", 150))   # stride
-EMBED_DIM  = int(os.environ.get("EMBED_DIM", 256))    # LSA dimensions
+EMBED_DIM  = int(os.environ.get("EMBED_DIM", 128))    # LSA dimensions
 TOP_K      = int(os.environ.get("TOP_K", 5))          # passages per query
 
 GROQ_MODEL   = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
@@ -152,7 +152,7 @@ class FAISSStore:
         self.chunks = chunks
         self.meta = meta
         self.vectorizer = TfidfVectorizer(
-            max_features=80_000, ngram_range=(1, 2), sublinear_tf=True
+            max_features=20_000, ngram_range=(1, 1), sublinear_tf=True
         )
         X_sp = self.vectorizer.fit_transform(chunks)
         real_dim = min(dim, X_sp.shape[1] - 1, X_sp.shape[0] - 1)
